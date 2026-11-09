@@ -1,4 +1,4 @@
-/* 一頁式導覽、照片預留與 Google 表單入口。 */
+/* 一頁式選單、照片備援與預約連結。預約網址直接放在 HTML，無 JS 也能使用。 */
 (() => {
   'use strict';
   const config = window.JERRY_SITE_CONFIG || {};
@@ -7,11 +7,22 @@
   if (toggle && nav) {
     const setMenu = open => {
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.textContent = open ? '關閉選單' : '開啟選單';
+      toggle.setAttribute('aria-label', open ? '關閉導覽選單' : '開啟導覽選單');
+      toggle.textContent = open ? '關閉' : '選單';
       nav.classList.toggle('is-open', open);
     };
     toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
-    nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link || toggle.getAttribute('aria-expanded') !== 'true') return;
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      setMenu(false);
+      if (target) {
+        const heading = target.querySelector('h1, h2') || target;
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({ preventScroll: true });
+      }
+    });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         setMenu(false); toggle.focus();
@@ -19,32 +30,45 @@
     });
     document.documentElement.classList.add('js');
   }
-  const portraitFrame = document.querySelector('[data-portrait-frame]');
+  const frame = document.querySelector('[data-portrait-frame]');
   const placeholder = document.querySelector('[data-portrait-placeholder]');
-  if (portraitFrame && placeholder && typeof config.portrait === 'string' && config.portrait.trim()) {
-    const portrait = document.createElement('img');
-    portrait.setAttribute('data-portrait', '');
-    portrait.hidden = true; portrait.width = 640; portrait.height = 800;
-    portrait.decoding = 'async'; portrait.setAttribute('fetchpriority', 'high');
-    portraitFrame.append(portrait);
-    portrait.alt = config.portraitAlt || 'Jerry 的個人照片';
-    portrait.addEventListener('load', () => { portrait.hidden = false; placeholder.hidden = true; });
-    portrait.addEventListener('error', () => { portrait.hidden = true; placeholder.hidden = false; });
-    portrait.src = config.portrait.trim();
+  if (frame && placeholder && typeof config.portrait === 'string' && config.portrait.trim()) {
+    const image = document.createElement('img');
+    image.hidden = true; image.width = 640; image.height = 800;
+    image.alt = config.portraitAlt || 'Jerry 的個人照片';
+    image.decoding = 'async'; image.setAttribute('fetchpriority', 'high');
+    image.addEventListener('load', () => { image.hidden = false; placeholder.hidden = true; });
+    image.addEventListener('error', () => { image.hidden = true; placeholder.hidden = false; });
+    frame.append(image); image.src = config.portrait.trim();
   }
   const formLink = document.querySelector('[data-consultation-link]');
-  const pending = document.querySelector('[data-consultation-pending]');
+  const copyButton = document.querySelector('[data-copy-consultation]');
   const note = document.querySelector('#booking-form-note');
-  if (formLink && pending && note && typeof config.consultationFormUrl === 'string' && config.consultationFormUrl.trim()) {
+  if (formLink && note) {
+    let formUrl;
     try {
-      const url = new URL(config.consultationFormUrl.trim());
-      const isShortLink = url.hostname === 'forms.gle';
-      const isPublicForm = url.hostname === 'docs.google.com' && url.pathname.startsWith('/forms/') && /\/viewform\/?$/.test(url.pathname);
-      if (url.protocol !== 'https:' || (!isShortLink && !isPublicForm)) throw new Error('需要公開 Google 表單填寫網址');
-      formLink.href = url.href; formLink.hidden = false; pending.hidden = true;
-      note.textContent = '將開啟 Google 表單，填寫完成後請在表單頁面送出。';
+      formUrl = new URL(formLink.getAttribute('href'));
+      const shortLink = formUrl.hostname === 'forms.gle';
+      const publicForm = formUrl.hostname === 'docs.google.com' && formUrl.pathname.startsWith('/forms/') && /\/viewform\/?$/.test(formUrl.pathname);
+      if (formUrl.protocol !== 'https:' || (!shortLink && !publicForm)) throw new Error('Invalid form URL');
     } catch {
-      note.textContent = '預約連結尚未就緒，目前無法送出預約。';
+      formUrl = null;
+      formLink.removeAttribute('href');
+      formLink.setAttribute('aria-disabled', 'true');
+      formLink.textContent = '預約連結暫時無法使用';
+      note.textContent = '請重新整理頁面後再試。';
+    }
+    if (formUrl && copyButton && window.navigator?.clipboard?.writeText) {
+      copyButton.hidden = false;
+      copyButton.addEventListener('click', async () => {
+        copyButton.disabled = true;
+        try {
+          await window.navigator.clipboard.writeText(formUrl.href);
+          note.textContent = '已複製預約連結，可貼到瀏覽器開啟。';
+        } catch {
+          note.textContent = '無法複製，請長按或按右鍵複製「前往 Google 表單」的連結。';
+        } finally { copyButton.disabled = false; }
+      });
     }
   }
   document.querySelectorAll('[data-year]').forEach(node => { node.textContent = String(new Date().getFullYear()); });

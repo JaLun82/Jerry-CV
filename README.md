@@ -1,24 +1,24 @@
 # Jerry 保險業務個人網站
 
-一頁式、原生 HTML／CSS／JavaScript，無須安裝套件。
+原生 HTML、CSS、JavaScript 一頁式網站，無須安裝套件。
 
-## 頁面順序
+## 修改內容
 
-個人照片與關於我 → 可以討論的問題 → 服務客戶案例 → QA → Google 表單預約。
+- `index.html`：自我介紹、四個服務問題、真實案例、QA，以及預約區塊。Google 表單網址直接修改 `data-consultation-link` 連結的 `href`；不需要 JavaScript 即可開啟表單。
+- `css/style.css`：暖白／深綠配色與手機版排版。手機頂端的預約入口常顯，圓形照片最高 220px。
+- `js/site-config.js`：個人照片路徑與替代文字。照片放在 `assets/`，留空時顯示預留區。
+- `js/main.js`：手機選單與焦點接續、照片載入備援、Google 表單網址檢查、複製連結與年份。
 
-## 修改位置
+## 尚待補齊
 
-- `index.html`：自我介紹、問題、真實案例與 QA。尚未提供的資料明確標示待補；案例不得以虛構內容當作真實見證。
-- `css/style.css`：暖白／深綠配色、桌機與手機排版。
-- `js/site-config.js`：個人照片路徑、照片替代文字與公開 Google 表單網址。照片可放在 `assets/`。表單接受 HTTPS `forms.gle` 短網址或 `docs.google.com/forms/.../viewform` 填寫網址，請勿放編輯連結。
-- `js/main.js`：手機選單、圖片載入備援、表單入口與年份。
-
-## 目前待補
-
-正式個人照片、服務經歷與背景、經客戶同意的匿名真實案例、諮詢費用／方式／回覆時間。Google 表單已設定為 https://forms.gle/PCeYZ4XHwV8WV4zs9 。未設定表單時，預約按鈕會清楚顯示準備中，不會模擬送出。所有前端設定均為公開內容，請勿放入私密資料。
+正式照片、經同意且匿名的真實案例，以及諮詢方式、服務範圍、費用與回覆時間。QA 已直接標示待確認項目。案例不使用虛構內容填空。
 
 ## 預覽與更新
 
-以 Live Server 開啟 `index.html`，或直接以瀏覽器開啟。Git remote 為 https://github.com/JaLun82/Jerry-CV ，使用 `main`；依指示提交並上傳，本機存檔不會自動推送。
+以 Live Server 或瀏覽器開啟 `index.html`。本機 Git 連到 https://github.com/JaLun82/Jerry-CV 的 `main`；依指示上傳，存檔不會自動推送。
 
-`Icons/`、`images/`、`style/` 保留自舊旅遊範本，目前的首頁不引用。
+## 本次精簡
+
+保留照片、自介、問題、案例、QA、預約的順序。移除重複說明、照片圖說、多個案例待補欄位與頁尾建置說明；QA 合併為三個問題。手機版保留頂端預約入口。Google 表單本身仍是唯一預約管道，「複製連結」僅提供在瀏覽器開啟的備援方式。
+
+`Icons/`、`images/`、`style/` 保留自舊旅遊範本，目前首頁未引用。請勿在前端或公開儲存庫放入密碼、金鑰與客戶資料。
