@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T15:27:34.469Z",
+  "title": "Design System: Jerry Insurance Profile",
+  "extensions": {
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background-color 160ms ease-out",
+        "purpose": "主按鈕背景的狀態切換，reduced-motion 時停用。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "360px"
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "手機名片式個人介紹",
+    "overview": "以使用者提供的參考網站為視覺方向，深藍、金色與窄版單欄支援個人介紹及預約。",
+    "keyCharacteristics": [
+      "窄版置中",
+      "小圓形照片",
+      "深藍金色",
+      "短內容",
+      "明顯預約入口"
+    ],
+    "rules": [],
+    "dos": [
+      "使用 Jerry 的真實內容與既有預約表單。",
+      "讓文字與互動維持清晰對比。"
+    ],
+    "donts": [
+      "借用參考人物的個人資料與業績。"
+    ]
+  }
+}

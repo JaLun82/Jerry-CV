@@ -2,34 +2,13 @@
 (() => {
   'use strict';
   const config = window.JERRY_SITE_CONFIG || {};
-  const toggle = document.querySelector('[data-menu-toggle]');
-  const nav = document.querySelector('#site-nav');
-  if (toggle && nav) {
-    const setMenu = open => {
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? '關閉導覽選單' : '開啟導覽選單');
-      toggle.textContent = open ? '關閉' : '選單';
-      nav.classList.toggle('is-open', open);
-    };
-    toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
-    document.addEventListener('click', event => {
-      const link = event.target.closest('a[href^="#"]');
-      if (!link || toggle.getAttribute('aria-expanded') !== 'true') return;
-      const target = document.getElementById(link.getAttribute('href').slice(1));
-      setMenu(false);
-      if (target) {
-        const heading = target.querySelector('h1, h2') || target;
-        heading.setAttribute('tabindex', '-1');
-        heading.focus({ preventScroll: true });
-      }
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-        setMenu(false); toggle.focus();
-      }
-    });
-    document.documentElement.classList.add('js');
-  }
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    const heading = target && target.querySelector('h1, h2');
+    if (heading) heading.focus({ preventScroll: true });
+  });
   const frame = document.querySelector('[data-portrait-frame]');
   const placeholder = document.querySelector('[data-portrait-placeholder]');
   if (frame && placeholder && typeof config.portrait === 'string' && config.portrait.trim()) {
