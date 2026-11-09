@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jerry 的個人簡歷與作品網站。">
+  <meta name="description" content="認識保險業務 Jerry，從保障疑問、服務案例與常見問題開始，了解諮詢與預約方式。">
   <meta name="color-scheme" content="light">
-  <title>Jerry｜個人簡歷</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <title>Jerry｜保險諮詢與保障整理</title>
+  <link rel="stylesheet" href="css/style.css?v=20261109-insurance">
+  <script src="js/site-config.js?v=20261109-insurance" defer></script>
+  <script src="js/main.js?v=20261109-insurance" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -17,78 +18,84 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>開啟選單</button>
       <nav class="site-nav" id="site-nav" aria-label="主要導覽">
         <a href="#about">關於我</a>
-        <a href="#experience">經歷</a>
-        <a href="#projects">作品</a>
-        <a href="#contact">聯絡</a>
+        <a href="#questions">你的問題</a>
+        <a href="#cases">服務案例</a>
+        <a href="#faq">QA</a>
+        <a class="nav-booking" href="#booking">預約諮詢</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" id="main">
-    <section class="intro" aria-labelledby="intro-title">
+  <main id="main">
+    <!-- 照片與關於我：照片路徑設定於 js/site-config.js。 -->
+    <section class="container intro" id="about" aria-labelledby="intro-title">
+      <figure class="portrait">
+        <div class="portrait-frame" data-portrait-frame>
+          <div class="portrait-placeholder" data-portrait-placeholder><span>Jerry 的個人照片</span><p>照片準備中</p></div>
+        </div>
+        <figcaption>從認識彼此開始，聊聊你在意的事。</figcaption>
+      </figure>
       <div class="intro-copy">
-        <!-- 下一步：替換姓名、專業方向與個人介紹。 -->
-        <h1 id="intro-title">你好，<br>我是 <span>Jerry。</span></h1>
-        <p class="intro-subtitle">個人簡歷與作品紀錄</p>
-        <p class="muted">這裡將整理我的背景、經歷與作品，讓你更認識我。</p>
-        <a class="button" href="#projects">看看我的作品 <span aria-hidden="true">→</span></a>
+        <h1 id="intro-title">我是 Jerry，<br>從你的問題<br class="desktop-break">開始聊保障。</h1>
+        <p class="intro-role">保險業務</p>
+        <h2 class="about-heading">關於我</h2>
+        <p>你好，我是 Jerry，目前從事保險業務。我希望先聽懂你的生活狀況與疑問，再一起整理需要討論的保障方向。</p>
+        <p class="intro-draft">我的經歷、服務理念與專業背景，將在這裡陸續補上。</p>
+        <div class="intro-actions"><a class="button" href="#questions">看看我能協助的問題</a><a class="text-link" href="#booking">預約諮詢</a></div>
       </div>
-      <aside class="profile-summary" aria-label="個人基本資料">
-        <h2>簡單認識我</h2>
-        <dl>
-          <div><dt>姓名／稱呼</dt><dd>Jerry</dd></div>
-          <div><dt>專業方向</dt><dd class="pending">待補上</dd></div>
-          <div><dt>所在地</dt><dd class="pending">待補上</dd></div>
-          <div><dt>GitHub</dt><dd><a href="https://github.com/JaLun82" target="_blank" rel="noopener noreferrer">JaLun82</a></dd></div>
-        </dl>
-      </aside>
     </section>
 
-    <section class="resume-section" id="about" aria-labelledby="about-title">
-      <div class="section-heading"><h2 id="about-title">關於我</h2><p>背景、專長與我正在關注的事。</p></div>
-      <div class="section-body">
-        <!-- 在此放入正式自我介紹，不必更動 CSS 或 JS。 -->
-        <p class="placeholder">待補上個人介紹：可以從目前的工作、擅長的事情，以及希望帶給別人的價值開始。</p>
-        <div class="profile-details">
-          <div><h3>專長與技能</h3><p class="pending">待補上專長、工具或證照。</p></div>
-          <div><h3>學歷與進修</h3><p class="pending">待補上學校、科系或進修紀錄。</p></div>
+    <!-- 用問題表達服務方向，後續可依實際專長調整。 -->
+    <section class="container content-section" id="questions" aria-labelledby="questions-title">
+      <div class="section-heading"><h2 id="questions-title">這些問題，<br>你也正在想嗎？</h2><p>先說出你的疑問，再一起找出需要釐清的重點。</p></div>
+      <ul class="question-list">
+        <li><h3>買了幾張保單，卻不知道自己到底有哪些保障？</h3><p>從現有保單與你在意的風險開始整理。</p></li>
+        <li><h3>每年都在繳保費，這樣的負擔適合現在的生活嗎？</h3><p>把保費、預算與目前的生活需求放在一起討論。</p></li>
+        <li><h3>結婚、生小孩或買房後，原本的保障還適合嗎？</h3><p>重新梳理家庭責任與生活階段的變化。</p></li>
+        <li><h3>遇到理賠時，該準備什麼資料、先從哪裡開始？</h3><p>先釐清事件與保單內容，再確認後續需要處理的事項。</p></li>
+      </ul>
+    </section>
+
+    <!-- 僅保留真實案例欄位，不以虛構故事或結果作為客戶見證。 -->
+    <section class="case-band" id="cases" aria-labelledby="cases-title">
+      <div class="container content-section">
+        <div class="section-heading"><h2 id="cases-title">我服務的<br>客戶案例</h2><p>從實際遇到的問題，了解服務如何展開。</p></div>
+        <div class="case-content">
+          <article class="case-template" aria-labelledby="case-heading">
+            <h3 id="case-heading">服務案例準備中</h3>
+            <p class="case-status">真實案例內容待補</p>
+            <dl class="case-details">
+              <div><dt>客戶原本的問題</dt><dd>待補上經匿名處理的背景與需求。</dd></div>
+              <div><dt>一起釐清的方向</dt><dd>待補上實際討論與協助的內容。</dd></div>
+              <div><dt>後續結果與回饋</dt><dd>待補上可公開的真實結果。</dd></div>
+            </dl>
+          </article>
+          <p class="case-note">這裡將放上經客戶同意、並妥善匿名處理的案例。</p>
         </div>
       </div>
     </section>
 
-    <section class="resume-section" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading"><h2 id="experience-title">經歷</h2><p>一路累積的工作與學習紀錄。</p></div>
-      <div class="section-body">
-        <!-- 有多段經歷時，複製 experience-entry 並替換內容。 -->
-        <article class="experience-entry">
-          <p class="entry-period pending">任職期間待補</p>
-          <div><h3>職稱與單位待補</h3><p class="muted">可在這裡整理工作內容、參與的專案，以及具體成果。</p></div>
-        </article>
+    <section class="container content-section" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading"><h2 id="faq-title">預約之前，<br>你可能想問</h2><p>QA｜點開問題，先了解諮詢方式。</p></div>
+      <div class="faq-list">
+        <details><summary>第一次諮詢，需要先準備什麼？</summary><div class="faq-answer"><p>先想想目前最想釐清的問題即可。若要討論現有保單，可先整理保單名稱與想詢問的內容，詳細資料待確認聯絡方式後再提供。</p></div></details>
+        <details><summary>諮詢費用與服務範圍是什麼？</summary><div class="faq-answer"><p>費用與服務範圍尚待確認，正式資訊會在這裡補上，方便你在預約前了解。</p></div></details>
+        <details><summary>諮詢可以線上進行嗎？</summary><div class="faq-answer"><p>線上或實體諮詢的安排與服務地區，將在確認後公布。</p></div></details>
+        <details><summary>要如何預約？填完後多久會收到回覆？</summary><div class="faq-answer"><p>預約入口將連到 Google 表單。表單與回覆時間目前準備中，完成設定後，就能從下方預約區塊前往填寫。</p></div></details>
       </div>
     </section>
 
-    <section class="resume-section" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading"><h2 id="projects-title">作品</h2><p>透過實際作品，認識我正在做的事。</p></div>
-      <div class="section-body">
-        <article class="project-entry">
-          <div><h3>好命綸規劃</h3><p class="muted">退休金、房貸與家庭資產負債表等財務規劃工具。</p></div>
-          <div class="project-links">
-            <a href="https://jalun82.github.io/Good-Luck-Lun/" target="_blank" rel="noopener noreferrer">查看網站 <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/JaLun82/Good-Luck-Lun" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="resume-section contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="section-heading"><h2 id="contact-title">聯絡我</h2><p>從認識開始，讓對話繼續。</p></div>
-      <div class="section-body">
-        <p class="pending">Email 與其他聯絡方式待補。</p>
-        <a class="text-link" href="https://github.com/JaLun82" target="_blank" rel="noopener noreferrer">前往我的 GitHub <span aria-hidden="true">↗</span></a>
+    <section class="container booking-section" id="booking" aria-labelledby="booking-title">
+      <div><h2 id="booking-title">把你的問題，<br>留一段時間好好聊。</h2><p>從一個你想問清楚的問題開始。</p></div>
+      <div class="booking-action">
+        <a class="button" data-consultation-link hidden target="_blank" rel="noopener noreferrer" aria-describedby="booking-form-note">填寫 Google 表單預約</a>
+        <button class="button" type="button" data-consultation-pending disabled aria-describedby="booking-form-note">Google 表單準備中</button>
+        <p id="booking-form-note" role="status">正式表單網址尚未設定，目前無法送出預約。</p>
+        <p class="booking-privacy">請先留下方便聯絡的方式與想討論的主題，勿在公開表單提供身分證字號或完整保單資料。</p>
       </div>
     </section>
   </main>
 
-  <footer class="container site-footer"><p>© <span data-year>2026</span> Jerry</p><p>個人簡歷網站・內容建置中</p></footer>
+  <footer class="container site-footer"><p>© <span data-year>2026</span> Jerry｜保險業務</p><p>網站架構初版・照片、案例及表單陸續補齊</p></footer>
 </body>
 </html>

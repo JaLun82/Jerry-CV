@@ -1,21 +1,24 @@
-# Jerry 個人簡歷網站
+# Jerry 保險業務個人網站
 
-原生 HTML、CSS、JavaScript 網站骨架，不需要安裝套件或建置。
+一頁式、原生 HTML／CSS／JavaScript，無須安裝套件。
 
-- `index.html`：修改姓名、自我介紹、學經歷、作品與聯絡資訊。標註「待補」的內容尚未提供。
-- `css/style.css`：顏色、字型、排版與手機版樣式。
-- `js/main.js`：手機導覽選單與頁尾年份。
+## 頁面順序
 
-## 本機預覽
+個人照片與關於我 → 可以討論的問題 → 服務客戶案例 → QA → Google 表單預約。
 
-在 VS Code 對 `index.html` 按右鍵，選「Open with Live Server」。亦可直接以瀏覽器開啟。若目前的 Live Server 根目錄是外層工作區，可前往 `http://127.0.0.1:5501/個人網站/index.html`。
+## 修改位置
 
-## 目前狀態
+- `index.html`：自我介紹、問題、真實案例與 QA。尚未提供的資料明確標示待補；案例不得以虛構內容當作真實見證。
+- `css/style.css`：暖白／深綠配色、桌機與手機排版。
+- `js/site-config.js`：個人照片路徑、照片替代文字與公開 Google 表單網址。照片可放在 `assets/`。表單接受 HTTPS `forms.gle` 短網址或 `docs.google.com/forms/.../viewform` 填寫網址，請勿放編輯連結。
+- `js/main.js`：手機選單、圖片載入備援、表單入口與年份。
 
-目前已建立網站骨架，並連到 https://github.com/JaLun82/Jerry-CV 的 main 分支。姓名暫用 Jerry，作品連結使用現有的好命綸規劃網站。其餘個人資料待確認後補齊。
+## 目前待補
 
-## 更新 GitHub
+正式個人照片、服務經歷與背景、經客戶同意的匿名真實案例、諮詢費用／方式／回覆時間、Google 表單網址。未設定表單時，預約按鈕會清楚顯示準備中，不會模擬送出。所有前端設定均為公開內容，請勿放入私密資料。
 
-採手動上傳；本機存檔不會自動推送。修改完成後，可請 Codex「幫我更新個人網站到 Jerry-CV」。本專案與好命綸規劃工具的儲存庫分開管理。
+## 預覽與更新
 
-`Icons/`、`images/`、`style/` 保留自舊版旅遊範本，目前的簡歷首頁不使用這些資源。
+以 Live Server 開啟 `index.html`，或直接以瀏覽器開啟。Git remote 為 https://github.com/JaLun82/Jerry-CV ，使用 `main`；依指示提交並上傳，本機存檔不會自動推送。
+
+`Icons/`、`images/`、`style/` 保留自舊旅遊範本，目前的首頁不引用。
