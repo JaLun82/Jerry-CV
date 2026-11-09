@@ -1,117 +1,94 @@
-<!DOCTYPE html>
-<html lang="zh-Hants">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>日本旅遊推薦</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./style/style.css" />
-  </head>
-  <body>
-    <img class="flxed-image" src="./images/富士山2.jpg" alt="flxed-image" />
-    <header>
-      <section class="logo">
-        <img src="./images/網站Logo.svg" alt="日本旅遊網Logo" />
-        <h1>2023日本旅遊推薦</h1>
-      </section>
-      <nav>
-        <ul>
-          <li>
-            <a href="#"><i class="fa-solid fa-plane-departure"></i> 日本旅遊</a>
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fa-solid fa-right-to-bracket"></i> 會員登入</a
-            >
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-book"></i> 預約行程</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-regular fa-address-book"></i> 聯絡我們</a>
-          </li>
-        </ul>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jerry 的個人簡歷與作品網站。">
+  <meta name="color-scheme" content="light">
+  <title>Jerry｜個人簡歷</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="Jerry，回到首頁">Jerry<span aria-hidden="true">.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>開啟選單</button>
+      <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+        <a href="#about">關於我</a>
+        <a href="#experience">經歷</a>
+        <a href="#projects">作品</a>
+        <a href="#contact">聯絡</a>
       </nav>
-    </header>
-    <main>
-      <section class="background-img">
-        <div class="filter"></div>
-        <h3>休閒空間，特殊假期。<br />安排一趟日本旅遊行程，放鬆身心。</h3>
-      </section>
-      <section class="info-circle">
-        <h3>遊玩主題</h3>
-        <div class="circles">
-          <div class="circle">
-            <img src="./images/北海道雪景.jpg" alt="北海道雪景" />
-            <p>北海道美景，美不勝收</p>
-          </div>
-          <div class="circle">
-            <img src="./images/日本壽司.jpg" alt="日本壽司" />
-            <p>日本道地壽司與美食</p>
-          </div>
-          <div class="circle">
-            <img src="./images/富士山.jpg" alt="富士山" />
-            <p>富士山風景與溫泉</p>
-          </div>
-          <div class="circle">
-            <img src="./images/清水寺.jpg" alt="清水寺" />
-            <p>京都清水寺，千年古都</p>
-          </div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <!-- 下一步：替換姓名、專業方向與個人介紹。 -->
+        <h1 id="intro-title">你好，<br>我是 <span>Jerry。</span></h1>
+        <p class="intro-subtitle">個人簡歷與作品紀錄</p>
+        <p class="muted">這裡將整理我的背景、經歷與作品，讓你更認識我。</p>
+        <a class="button" href="#projects">看看我的作品 <span aria-hidden="true">→</span></a>
+      </div>
+      <aside class="profile-summary" aria-label="個人基本資料">
+        <h2>簡單認識我</h2>
+        <dl>
+          <div><dt>姓名／稱呼</dt><dd>Jerry</dd></div>
+          <div><dt>專業方向</dt><dd class="pending">待補上</dd></div>
+          <div><dt>所在地</dt><dd class="pending">待補上</dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/JaLun82" target="_blank" rel="noopener noreferrer">JaLun82</a></dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="resume-section" id="about" aria-labelledby="about-title">
+      <div class="section-heading"><h2 id="about-title">關於我</h2><p>背景、專長與我正在關注的事。</p></div>
+      <div class="section-body">
+        <!-- 在此放入正式自我介紹，不必更動 CSS 或 JS。 -->
+        <p class="placeholder">待補上個人介紹：可以從目前的工作、擅長的事情，以及希望帶給別人的價值開始。</p>
+        <div class="profile-details">
+          <div><h3>專長與技能</h3><p class="pending">待補上專長、工具或證照。</p></div>
+          <div><h3>學歷與進修</h3><p class="pending">待補上學校、科系或進修紀錄。</p></div>
         </div>
-      </section>
-      <section class="empty-container">
-        <h3>今天就開始規劃行程，找到最適合的方案。</h3>
-      </section>
-      <section class="google-map">
-        <h3>日本地理位置</h3>
-        <p>
-          日本在地理上屬於東北亞，東鄰太平洋，西以日本海、朝鮮海峽、東海與歐亞大陸的西伯利亞、朝鮮半島、中國大陸鄰接，南以菲律賓海與台灣、馬里亞納群島鄰接，北以宗谷海峽、鄂霍次克海與庫頁島、千島群島鄰接。日本一年四季都是舒爽怡人的氣候，四季變化分明。
-          南部暖和，越往北部越寒冷。
-          特別是冬天吹西北季風，在日本海側會下很多雪。
-          另一方面、在太平洋側會持續是被稱為「冬晴」的乾燥晴天。
-        </p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13627579.110253144!2d137.15386460000002!3d33.500188599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275d47c665244!2z5pel5pys!5e0!3m2!1szh-TW!2stw!4v1743495271046!5m2!1szh-TW!2stw"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </section>
-    </main>
-    <footer>
-      <section class="logo">
-        <img src="./images/網站Logo.svg" alt="logo" />
-        <h3>2023日本旅遊推薦</h3>
-      </section>
-      <section class="links">
-        <a href="#"><img src="./Icons/facebook.svg" alt="facebook" /></a>
-        <a href="#"><img src="./Icons/instagram.svg" alt="instagram" /></a>
-        <a href="#"><img src="./Icons/twitter.svg" alt="twitter" /></a>
-        <a href="#"><img src="./Icons/youtube.svg" alt="youtube" /></a>
-      </section>
-    </footer>
-    <script>
-      setInterval(() => {
-        let topBackground = document.querySelector("section.background-img");
-        if (
-          topBackground.style.backgroundImage == 'url("../images/日本櫻花.jpg")'
-        ) {
-          topBackground.style.backgroundImage = 'url("../images/京都古城.jpg")';
-        } else if (
-          topBackground.style.backgroundImage == 'url("../images/京都古城.jpg")'
-        ) {
-          topBackground.style.backgroundImage = 'url("../images/大阪街頭.jpg")';
-        } else {
-          topBackground.style.backgroundImage = 'url("../images/日本櫻花.jpg")';
-        }
-      }, 3000);
-    </script>
-  </body>
+      </div>
+    </section>
+
+    <section class="resume-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title">經歷</h2><p>一路累積的工作與學習紀錄。</p></div>
+      <div class="section-body">
+        <!-- 有多段經歷時，複製 experience-entry 並替換內容。 -->
+        <article class="experience-entry">
+          <p class="entry-period pending">任職期間待補</p>
+          <div><h3>職稱與單位待補</h3><p class="muted">可在這裡整理工作內容、參與的專案，以及具體成果。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><h2 id="projects-title">作品</h2><p>透過實際作品，認識我正在做的事。</p></div>
+      <div class="section-body">
+        <article class="project-entry">
+          <div><h3>好命綸規劃</h3><p class="muted">退休金、房貸與家庭資產負債表等財務規劃工具。</p></div>
+          <div class="project-links">
+            <a href="https://jalun82.github.io/Good-Luck-Lun/" target="_blank" rel="noopener noreferrer">查看網站 <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/JaLun82/Good-Luck-Lun" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading"><h2 id="contact-title">聯絡我</h2><p>從認識開始，讓對話繼續。</p></div>
+      <div class="section-body">
+        <p class="pending">Email 與其他聯絡方式待補。</p>
+        <a class="text-link" href="https://github.com/JaLun82" target="_blank" rel="noopener noreferrer">前往我的 GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container site-footer"><p>© <span data-year>2026</span> Jerry</p><p>個人簡歷網站・內容建置中</p></footer>
+</body>
 </html>
